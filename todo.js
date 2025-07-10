@@ -6,8 +6,6 @@ function haha(){
     let drr=JSON.parse(localStorage.getItem("drr")) || []
     arr.push(todo.value)
     drr.push(datee.value)
-    
-    
     localStorage.setItem("arr",JSON.stringify(arr))
     localStorage.setItem("drr",JSON.stringify(drr))
     display()
@@ -34,8 +32,12 @@ function display(){
     let drr = JSON.parse(localStorage.getItem("drr")) || [];
 
     let htm="";
-    for(let i=0;i<arr.length;i++){
-        htm+=arr[i]+" "+drr[i]+" "+"<button onclick='del("+i+")'>Delete</button>"+"<br>"
+    for (let i = 0; i < arr.length; i++) {
+        htm += "<div class='row'>" +
+                 "<span class='cell'>" + arr[i] + "</span>" +
+                 "<span class='cell'>" + drr[i] + "</span>" +
+                 "<span class='cell'><button onclick='del(" + i + ")' class='bigg'>Delete</button></span>" +
+               "</div>";
     }
     document.querySelector(".para").innerHTML=htm
     
